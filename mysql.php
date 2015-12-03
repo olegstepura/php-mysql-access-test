@@ -23,11 +23,11 @@ class MySQLAccessTest
         public $pass = '123456';
 
         public function __construct(array $config) {
-                $this->host = @$config['host'] ?: $this->host;
-                $this->port = @$config['port'] ?: $this->port;
-                $this->db   = @$config['db']   ?: $this->db;
-                $this->user = @$config['user'] ?: $this->user;
-                $this->pass = @$config['pass'] ?: $this->pass;
+                $this->host = (!isset($config['host'])) ?: $this->host;
+                $this->port = (!isset($config['port'])) ?: $this->port;
+                $this->db   = (!isset($config['db']))   ?: $this->db;
+                $this->user = (!isset($config['user'])) ?: $this->user;
+                $this->pass = (!isset($config['pass'])) ?: $this->pass;
         }
 
         private function error($message) {
